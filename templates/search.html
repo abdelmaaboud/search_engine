@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{%  block content %}
+    <div class="container">
+<form action="/search/" method="get">
+<input type="text" name="q" size="40" >
+<br>
+          <label><input type="checkbox" name="soundex"> Soundex</label><br>
+      <label><input type="checkbox" name="correction"> Spelling Correction</label><br>
+
+
+
+    <br><input type="submit" value="Search"  class="btn btn-default">
+</form>
+    </div>
+{% endblock %}

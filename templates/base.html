@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static "bootstrap.min.css" %}">
+    <meta charset="UTF-8">
+    <title>Mini Google</title>
+</head>
+<body>
+  {% block content %}
+  {% endblock %}
+</body>
+</html>
+<style>
+    body{
+        margin-top: 40px;
+    }
+
+</style>
