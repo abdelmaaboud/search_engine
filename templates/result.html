@@ -1,5 +1,20 @@
 {% extends 'base.html' %}
 {%  block content %}
+
+{%if docs %}
+  <div class="container">
+<form action="/search/" method="get">
+<input type="text" name="q" size="40" value="{{term}}">
+<br>
+
+
+
+</form>
+    </div>
+<br><br>
+{% endif%}
+
+
 <div class="container">
 {% if result_terms %}
     <h2>do you mean ? </h2>
@@ -8,14 +23,16 @@
     {% endfor %}
 {% endif %}
 {% for doc in docs %}
-    <a href="{{ doc.url }}">{{ doc.title }}</a>
+    <a href="{{ doc.url }}" class="result">{{ doc.title }}</a>
     <br>    <br>
+    <p>{{ doc.text|truncatechars:560 }}</p>
 
 {% endfor %}
 {% if docs.has_other_pages %}
   <ul class="pagination">
     {% if docs.has_previous %}
       <li><a href="?page={{ docs.previous_page_number }}">&laquo;</a></li>
+
     {% else %}
       <li class="disabled"><span>&laquo;</span></li>
     {% endif %}
@@ -34,5 +51,10 @@
   </ul>
 {% endif %}
 </div>
-
+<style>
+p{
+    padding-left: 10px;
+}
+</style>
 {%endblock  %}
+
